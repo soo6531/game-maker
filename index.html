@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Cyber Run — 백신을 찾아서</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <button type="button" id="btn-mute" class="btn-mute" aria-label="소리 켜기/끄기" title="소리">🔊</button>
+  <div id="app">
+    <section id="screen-select" class="screen" aria-label="캐릭터 선택">
+      <p class="eyebrow">VIBE CODING LAB</p>
+      <h1>AI CYBER RUN</h1>
+      <p class="subtitle">백신을 찾아서</p>
+      <p class="lead">사이버 세계를 바이러스로부터 지켜주세요!</p>
+
+      <div class="char-row">
+        <button type="button" class="char-card" data-character="chick" id="pick-chick">
+          <img class="portrait" src="assets/chick/front.png" alt="AI 병아리 정면" />
+          <strong>AI 병아리</strong>
+          <span>노란 AI · 정면</span>
+          <em>선택</em>
+        </button>
+
+        <button type="button" class="char-card" data-character="bear" id="pick-bear">
+          <img class="portrait" src="assets/bear/front.png" alt="AI 곰돌이 정면" />
+          <strong>AI 곰돌이</strong>
+          <span>흰 AI · 정면</span>
+          <em>선택</em>
+        </button>
+      </div>
+
+      <div class="hearts preview" id="preview-hearts" aria-label="목숨 5개">❤️❤️❤️❤️❤️</div>
+      <button type="button" id="btn-start" class="btn primary" disabled>GAME START</button>
+      <p class="hint">← → 레인 이동 · ↑ / Space 점프</p>
+      <p class="credits">로비 BGM: Digital Lemonade · 게임 BGM: Bit Quest — Kevin MacLeod (incompetech.com) CC BY 3.0 · 효과음: Kenney.nl CC0</p>
+    </section>
+
+    <section id="screen-play" class="screen hidden" aria-label="게임 플레이">
+      <header class="hud">
+        <div class="hud-score">
+          <span>SCORE</span>
+          <strong id="hud-score">00000</strong>
+        </div>
+        <div class="hud-title">CYBER WORLD</div>
+        <div class="hud-lives" id="hud-lives">❤️ × 5</div>
+      </header>
+
+      <div id="world">
+        <div class="scanlines"></div>
+        <div class="grid"></div>
+        <div class="lanes">
+          <div class="lane" data-lane="0"><span>LEFT</span></div>
+          <div class="lane" data-lane="1"><span>CENTER</span></div>
+          <div class="lane" data-lane="2"><span>RIGHT</span></div>
+        </div>
+        <div id="entities"></div>
+        <div id="player" class="player">
+          <img id="player-sprite" class="player-sprite" alt="플레이어" />
+        </div>
+        <div id="float-texts"></div>
+      </div>
+
+      <p class="controls-hint">← 왼쪽 · → 오른쪽 · ↑ / Space 점프</p>
+    </section>
+
+    <section id="screen-over" class="screen hidden" aria-label="게임 오버">
+      <p class="alert">SYSTEM INFECTED</p>
+      <h2>GAME OVER</h2>
+      <p class="over-label">SCORE</p>
+      <p class="over-score" id="over-score">0</p>
+      <p class="over-label">BEST SCORE</p>
+      <p class="over-best" id="over-best">0</p>
+      <div class="over-actions">
+        <button type="button" id="btn-retry" class="btn primary">다시 시작</button>
+        <button type="button" id="btn-reselect" class="btn ghost">캐릭터 선택</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
